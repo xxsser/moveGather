@@ -59,13 +59,13 @@ include 'jssdk.php';
     <div class="tb_a">
         <ul class="picTxt picTxtA clearfix">
             <?php
-                $list = $database->select('gether_info',array('id','title','cover','add_time'),array('AND'=>array('is_read'=>1,'pid'=>0),'ORDER'=>'id DESC'));
+                $list = $database->select('gether_info',array('id','title','cover','category','add_time'),array('AND'=>array('is_read'=>1,'pid'=>0),'ORDER'=>'id DESC'));
                 foreach($list as $value){?>
             <li>
                 <div class="con">
                     <a href="./info.php?id=<?php echo $value['id']?>" target="_self">
                         <img height="135" src="<?php echo $value['cover']?>" alt="" />
-                        <!--<span class="sNum">正在更新<em class="emHot">经典</em></span>-->
+                        <span class="sNum">高清<em class="emHot"><?php echo $value['category']?></em></span>
                         <span class="sTit"><?php echo $value['title']?></span>
                         <span class="sDes">更新：<?php echo date('Y-m-d',$value['add_time']);  ?></span>
                     </a>
