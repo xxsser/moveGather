@@ -11,6 +11,7 @@ CREATE TABLE `gether_info` (
   `pid` int(10) unsigned NOT NULL DEFAULT '0',
   `remote_page_name` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL DEFAULT '',
+  'part' varchar(255) NOT NULL DEFAULT '',
   `category` VARCHAR(255) NOT NULL DEFAULT '',
   `cover` varchar(255) NOT NULL DEFAULT '',
   `is_read` tinyint(1) unsigned NOT NULL DEFAULT '0',

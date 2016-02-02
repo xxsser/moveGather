@@ -11,14 +11,15 @@ $gather = new gather();
 $now = time();
 $data = $gather->getIndexList();
 foreach($data as $value){
-    preg_match_all('/href="\.([^"|\']+)".*data-echo="([^"|\'].+)".+\n.+\n.+emHot">(.+)<\/em>.+sTit">(.+)<\/span>/Ui',$value,$matches);
+    preg_match_all('/href="\.([^"|\']+)".*data-echo="([^"|\'].+)".+\n.+.+sNum">(.+)\n.+emHot">(.+)<\/em>.+sTit">(.+)<\/span>/Ui',$value,$matches);
     if(!empty($matches)){
         if(!$database->has('gether_info',array('remote_page_name'=>$matches[1][0]))){
             $last_user_id = $database->insert("gether_info", array(
                 "remote_page_name" => $matches[1][0],
-                "title" => $matches[4][0],
+                "title" => $matches[5][0],
                 "cover" => $matches[2][0],
-                "category" => $matches[3][0],
+                'part'  => $matches[3][0],
+                "category" => $matches[4][0],
                 'add_time' =>$now,
             ));
         }

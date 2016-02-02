@@ -7,16 +7,16 @@ $gather = new gather();
 $now = time();
 $data = $gather->getIndexList();
 foreach($data as $value){
-    preg_match_all('/href="\.([^"|\']+)".*data-echo="([^"|\'].+)".+\n.+\n.+emHot">(.+)<\/em>.+sTit">(.+)<\/span>/Ui',$value,$matches);
+    preg_match_all('/href="\.([^"|\']+)".*data-echo="([^"|\'].+)".+\n.+.+sNum">(.+)\n.+emHot">(.+)<\/em>.+sTit">(.+)<\/span>/Ui',$value,$matches);
     if(!empty($matches)){
-        $category=$database->get('gether_info','category',array("remote_page_name" =>$matches[1][0]));
+        $category=$database->get('gether_info','part',array("remote_page_name" =>$matches[1][0]));
         if(!$category){
             $last_user_id = $database->update("gether_info", array(
-                "category" => $matches[3][0],
+                "part" => $matches[3][0],
             ),array("remote_page_name" => $matches[1][0]));
         }
         if($last_user_id){
-            echo '成功更新分类'.$matches[3][0].'</br>';
+            echo '成功更新类型'.$matches[3][0].'</br>';
         }
     }
 }
