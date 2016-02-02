@@ -40,3 +40,6 @@ if($list){
         }
     }
 }
+if(empty($last_user_id)){
+    echo '列表已更新完成！';
+}
