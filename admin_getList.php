@@ -15,7 +15,7 @@ foreach($data as $value){
     if(!empty($matches)){
         if(!$database->has('gether_info',array('remote_page_name'=>$matches[1][0]))){
             $last_user_id = $database->insert("gether_info", array(
-                "remote_page_name" => $matches[1][0],
+                "remote_page_name" => '/'.ltrim($matches[1][0],'/'),
                 "title" => $matches[5][0],
                 "cover" => $matches[2][0],
                 'part'  => $matches[3][0],

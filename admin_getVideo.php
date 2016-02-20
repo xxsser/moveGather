@@ -25,10 +25,10 @@ if($list){
                 echo $value['id'].'已成功提取'.$furl['fuckurl'][1][0].'</br>';
             }
         }
-        if($furl['part'] && $value['pid']=0){
+        if($furl['part'] && $value['pid']==0){
             for($i=0;$i<count($furl['part'][0]);$i++){
                 $last_insert_id = $database->insert("gether_info", array(
-                    "remote_page_name" => substr($value['remote_page_name'],0,strrpos($value['remote_page_name'],'/')+1).ltrim($furl['part'][1][$i],'.'),
+                    "remote_page_name" => substr($value['remote_page_name'],0,strrpos($value['remote_page_name'],'/')+1).ltrim(ltrim($furl['part'][1][$i],'.'),'/'),
                     "pid" => $value['id'],
                     "title" => $furl['part'][2][$i],
                     'add_time' =>$now,
